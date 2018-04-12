@@ -52,11 +52,11 @@ model.add(Flatten())
 
 model.add(Dense(128, activation='relu'))
 
-model.add(Dropout(0.5))
+model.add(Dropout(0.4))
 
 model.add(Dense(10, activation='softmax')) 
 
-sgd = SGD(lr=0.01)
+sgd = SGD(lr=0.1, momentum=0.9)
 model.compile(loss='categorical_crossentropy', optimizer='sgd', metrics=['accuracy'])
 
 model.fit(x_train, y_train, batch_size=128, epochs=12, validation_data=(x_test, y_test))
